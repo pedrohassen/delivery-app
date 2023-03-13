@@ -135,7 +135,8 @@ export default function Products() {
         <button
           type="button"
           data-testid="customer_products__button-cart"
-          className="submit-products"
+          className=" fixed bottom-0 left-50 w-[250px] h-[70px] mb-10 inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-lg rounded-md text-black bg-corBotao hover:bg-corBotaoHover hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 items-center font-glacial-bold"
+
           disabled={ !disableButtton() }
           onClick={ () => history.push('/customer/checkout') }
         >

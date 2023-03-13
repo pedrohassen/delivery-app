@@ -42,7 +42,8 @@
     "pm2": "5.2.0",
     "puppeteer": "13.5.1",
     "sequelize": "6.17.0",
-    "sequelize-cli": "6.4.1"
+    "sequelize-cli": "6.4.1",
+    "tailwindcss": "^3.2.7"
   },
   "jest": {
     "globals": {
