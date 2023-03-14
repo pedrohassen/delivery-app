@@ -26,7 +26,7 @@ function CheckoutTable({ products, onRemove }) {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-white">
       <div className="w-full overflow-x-auto">
         <table className="w-full whitespace-no-wrap">
           <thead>
@@ -74,7 +74,10 @@ function CheckoutTable({ products, onRemove }) {
       <div className="flex justify-end mt-8">
         <div className="p-4 flex items-center">
           <h2 className="text-lg md:text-2xl font-glacial-regular">Total:</h2>
-          <h2 className="text-lg md:text-2xl font-bold text-corLetra font-glacial-bold ml-2" data-testid="customer_checkout__element-order-total-price">
+          <h2
+            className="text-lg md:text-2xl font-bold text-corLetra font-glacial-bold ml-2"
+            data-testid="customer_checkout__element-order-total-price"
+          >
             {`R$ ${getTotalPrice().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`}
           </h2>
         </div>

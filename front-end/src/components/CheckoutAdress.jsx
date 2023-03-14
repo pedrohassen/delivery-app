@@ -63,7 +63,7 @@ function CheckoutAddress() {
   }
 
   return (
-    <div className="flex flex-col items-center py-6 pt-12 w-full">
+    <div className="flex flex-col items-center py-6 pt-12 w-full bg-white">
       <h2 className="text-2xl mb-4 font-medium">Detalhes e Endereço para Entrega</h2>
 
       <form className="flex flex-wrap w-full xl:w-4/6 items-center justify-center">

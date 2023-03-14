@@ -29,7 +29,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className="flex md:flex-1 md:items-center md:justify-between items-center justify-between bg-corHeader text-white">
+    <header className="flex flex-col md:flex-1 md:items-center md:justify-between items-center justify-between bg-corHeader text-white">
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex mx-14 cursor-pointer hover:opacity-100 opacity-90">
           <img className="h-28 w-56" src={ ibirita } alt="Ibirita Logo" />
