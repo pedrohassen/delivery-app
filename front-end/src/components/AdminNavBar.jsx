@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Context from '../context/context';
-import '../styles/NavBar.css';
+import ibirita from '../images/ibirita.png';
+// import '../styles/NavBar.css';
 
 export default function NavBar() {
   const { setIsLoged } = useContext(Context);
@@ -17,8 +18,16 @@ export default function NavBar() {
   };
 
   return (
-    <div className="header">
-      <nav className="navbar-left">
+  //   <header className="flex md:flex-1 md:items-center md:justify-between items-center justify-between bg-corHeader text-white">
+  // <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6">
+  //   <div className="flex mx-14 cursor-pointer hover:opacity-100 opacity-90">
+  //     <img className="h-28 w-56" src={ ibirita } alt="Ibirita Logo" />
+  //   </div>
+    <div className="flex md:flex-1 md:items-center md:justify-between items-center justify-between bg-corHeader text-white">
+      <div className="flex mx-14 cursor-pointer hover:opacity-100 opacity-90">
+        <img className="h-28 w-56" src={ ibirita } alt="Ibirita Logo" />
+      </div>
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6">
         <ul className="nav-list-left">
           <li
             className="nav-item"

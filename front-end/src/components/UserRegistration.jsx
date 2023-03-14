@@ -68,15 +68,15 @@ function UserRegistration() {
   }
 
   return (
-    <div className="min-h-screen bg-corFundo flex flex-col justify-center py-0 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md logo-ibirita">
-        <img src={ ibirita } alt="ibirita-logo" />
+    <div className="min-h-screen bg-corFundo flex flex-col justify-center py-20 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md mx-auto px-2 logo-ibirita">
+        <img src={ ibirita } alt="ibirita-logo" className="max-w-full mx-auto" />
         <form onSubmit={ handleSubmit } className="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg">
           <h1 className="text-center text-2xl font-bold mb-6">Faça o seu cadastro</h1>
 
           <div className="grid grid-cols-1 gap-6">
             {errorMessage.length > 0 && (
-              <p data-testid="common_register__element-invalid_register" className="text-red-500 text-sm mt-2 text-center">
+              <p data-testid="common_register__element-invalid_register" className="text-red-500 text-md mt-2 text-center">
                 {errorMessage}
               </p>
             )}

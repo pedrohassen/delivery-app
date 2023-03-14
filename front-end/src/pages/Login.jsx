@@ -77,9 +77,9 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-corFundo flex flex-col justify-center py-0 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md logo-ibirita">
+      <div className="w-full max-w-md mx-auto px-2 logo-ibirita">
         <img src={ ibirita } alt="ibirita-logo" />
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-white py-8 px-4 shadow rounded-lg sm:rounded-lg sm:px-10">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 className="text-center text-3xl text-gray-900 my-5 font-glacial-bold">Acesse sua conta</h2>
           </div>
@@ -138,7 +138,7 @@ export default function LoginPage() {
 
             { invisibleElement && (
               <div className="mt-6">
-                <p data-testid="common_login__element-invalid-email" className="text-sm text-red-600 text-center">
+                <p data-testid="common_login__element-invalid-email" className="text-md text-red-600 text-center">
                   E-mail ou Senha Inválidos
                 </p>
               </div>
