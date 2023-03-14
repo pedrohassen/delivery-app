@@ -40,7 +40,7 @@ function AdminUsers() {
       data-testid="customer_element-order-table"
     >
       <div className="w-full overflow-x-auto text-center">
-        <h3 className="text-3xl mb-6 font-glacial-bold mr-16">Lista de usuários</h3>
+        <h3 className="text-3xl mb-6 font-glacial-bold md:mr-16">Lista de usuários</h3>
         <table className="w-full whitespace-no-wrap">
           <thead>
             <tr className="bg-gray-200">
