@@ -135,8 +135,14 @@ export default function Products() {
         <button
           type="button"
           data-testid="customer_products__button-cart"
-          className={ `fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[250px] h-[70px] mb-10 inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-lg rounded-md text-white bg-gradient-to-b from-corBotao to-corBotaoHover hover:from-corBotaoHover hover:to-corBotao focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 items-center font-glacial-bold ${disableButtton() ? '' : 'hidden'}` }
-
+          className={ `fixed bottom-0 left-1/2 
+          transform -translate-x-1/2 w-[250px] h-[70px] 
+          mb-10 inline-flex justify-center py-4 px-6 border 
+          border-transparent shadow-sm text-lg rounded-md text-white 
+          bg-gradient-to-b from-corBotao to-corBotaoHover 
+          hover:from-corBotaoHover hover:to-corBotao focus:outline-none 
+          focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 items-center 
+          font-glacial-bold ${disableButtton() ? '' : 'hidden'}` }
           disabled={ !disableButtton() }
           onClick={ () => history.push('/customer/checkout') }
         >

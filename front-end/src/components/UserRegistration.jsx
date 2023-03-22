@@ -68,87 +68,115 @@ function UserRegistration() {
   }
 
   return (
-    <div className="min-h-screen bg-corFundo flex flex-col justify-center py-20 sm:px-6 lg:px-8">
+    <div
+      className={ `min-h-screen bg-corFundo flex 
+    flex-col justify-center py-20 sm:px-6 lg:px-8` }
+    >
       <div className="w-full max-w-md mx-auto px-2 logo-ibirita">
         <img src={ ibirita } alt="ibirita-logo" className="max-w-full mx-auto" />
-        <form onSubmit={ handleSubmit } className="w-full max-w-md mx-auto p-8 bg-white rounded-lg shadow-lg">
+        <form
+          onSubmit={ handleSubmit }
+          className={ `w-full max-w-md mx-auto p-8 bg-white 
+        rounded-lg shadow-lg` }
+        >
           <h1 className="text-center text-2xl font-bold mb-6">Faça o seu cadastro</h1>
 
           <div className="grid grid-cols-1 gap-6">
             {errorMessage.length > 0 && (
-              <p data-testid="common_register__element-invalid_register" className="text-red-500 text-md mt-2 text-center">
+              <p
+                data-testid="common_register__element-invalid_register"
+                className="text-red-500 text-md mt-2 text-center"
+              >
                 {errorMessage}
               </p>
             )}
             <div>
-              <TextField
-                id="outlined-basic"
-                name="name"
-                label="Nome"
-                variant="outlined"
-                value={ newUserData.name }
-                onChange={ handleChange }
-                placeholder="Insira o seu nome"
-                margin="normal"
-                fullWidth
-                required
-              />
+              {newUserData && (
+                <TextField
+                  id="outlined-basic"
+                  name="name"
+                  label="Nome"
+                  variant="outlined"
+                  value={ newUserData.name }
+                  onChange={ handleChange }
+                  placeholder="Insira o seu nome"
+                  margin="normal"
+                  fullWidth
+                  required
+                />
+              )}
             </div>
 
             <div>
-              <TextField
-                id="outlined-basic"
-                name="email"
-                type="email"
-                label="Email"
-                variant="outlined"
-                value={ newUserData.email }
-                onChange={ handleChange }
-                placeholder="Insira o seu email"
-                data-testid="common_register__input-email"
-                margin="normal"
-                fullWidth
-                required
-              />
+              {newUserData && (
+                <TextField
+                  id="outlined-basic"
+                  name="email"
+                  type="email"
+                  label="Email"
+                  variant="outlined"
+                  value={ newUserData.email }
+                  onChange={ handleChange }
+                  placeholder="Insira o seu email"
+                  data-testid="common_register__input-email"
+                  margin="normal"
+                  fullWidth
+                  required
+                />
+              )}
             </div>
 
             <div>
-              <TextField
-                id="password"
-                name="password"
-                label="Senha"
-                type="password"
-                value={ newUserData.password }
-                variant="outlined"
-                onChange={ handleChange }
-                data-testid="common_register__input-password"
-                placeholder="**********"
-                margin="normal"
-                fullWidth
-                required
-              />
+              {newUserData && (
+                <TextField
+                  id="password"
+                  name="password"
+                  label="Senha"
+                  type="password"
+                  value={ newUserData.password }
+                  variant="outlined"
+                  onChange={ handleChange }
+                  data-testid="common_register__input-password"
+                  placeholder="**********"
+                  margin="normal"
+                  fullWidth
+                  required
+                />
+              )}
             </div>
-
-            <div className="mt-2 mb-4">
-              <ThemeProvider theme={ theme }>
-                <Button
-                  type="submit"
-                  size="large"
-                  variant="contained"
-                  color="primary"
-                  disabled={ !formComplete }
-                  onClick={ () => handleSubmit() }
-                  className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-black bg-corBotao hover:bg-corBotaoHover hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Cadastrar
-                </Button>
-              </ThemeProvider>
-            </div>
+            {newUserData && (
+              <div className="mt-2 mb-4">
+                <ThemeProvider theme={ theme }>
+                  <Button
+                    type="submit"
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    disabled={ !formComplete }
+                    onClick={ () => handleSubmit() }
+                    className={ `w-full inline-flex justify-center py-2 px-4 border 
+                              border-transparent shadow-sm text-sm font-medium rounded-md 
+                              text-black bg-corBotao hover:bg-corBotaoHover 
+                              hover:text-white 
+                              focus:outline-none focus:ring-2 focus:ring-offset-2 
+                              focus:ring-indigo-500` }
+                  >
+                    Cadastrar
+                  </Button>
+                </ThemeProvider>
+              </div>
+            )}
           </div>
 
           <div className="mt-6 flex justify-center items-center">
             <p className="text-gray-700">Já possui cadastrado?</p>
-            <a href="#" className="ml-1 text-blue-600" onClick={ () => history.push('/login') }>Faça o Login</a>
+            <button
+              type="button"
+              className="ml-1 text-blue-600"
+              onClick={ () => history.push('/login') }
+            >
+              Faça o Login
+            </button>
           </div>
         </form>
       </div>

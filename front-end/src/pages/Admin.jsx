@@ -133,31 +133,38 @@ function Admin() {
               className=" w-full lg:w-60"
             />
           </div>
-          <div className="w-full px-2">
-            <FormControl sx={ { m: 1, minWidth: 120 } }>
-              <InputLabel id="demo-simple-select-helper-label">Tipo</InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                label="Tipo"
-                name="role"
-                value={ newUserData.role }
-                onChange={ handleChange }
-                className="w-full lg:w-60"
-              >
-                <MenuItem value="seller">Vendedor</MenuItem>
-                <MenuItem value="administrator">Administrador</MenuItem>
-                <MenuItem value="customer">Cliente</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
+          {newUserData && (
+            <div className="w-full px-2">
+              <FormControl sx={ { m: 1, minWidth: 120 } }>
+                <InputLabel id="demo-simple-select-helper-label">Tipo</InputLabel>
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  label="Tipo"
+                  name="role"
+                  value={ newUserData.role }
+                  onChange={ handleChange }
+                  className="w-full lg:w-60"
+                >
+                  <MenuItem value="seller">Vendedor</MenuItem>
+                  <MenuItem value="administrator">Administrador</MenuItem>
+                  <MenuItem value="customer">Cliente</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+          )}
           <div className="w-full px-2 mt-12 md:mt-0 items-center justify-center">
             <button
               type="submit"
               data-testid="admin_manage__button-register"
               disabled={ !formComplete }
               onClick={ handleSubmit }
-              className="w-full lg:w-auto h-[50px] inline-flex mt-18 justify-center py-4 px-6 border border-transparent shadow-sm text-lg rounded-md text-white bg-gradient-to-b from-corBotao to-corBotaoHover hover:from-corBotaoHover hover:to-corBotao focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 items-center font-glacial-bold cursor-pointer"
+              className={ `w-full lg:w-auto h-[50px] inline-flex mt-18 
+              justify-center py-4 
+              px-6 border border-transparent shadow-sm text-lg rounded-md text-white 
+              bg-gradient-to-b from-corBotao to-corBotaoHover hover:from-corBotaoHover 
+              hover:to-corBotao focus:outline-none focus:ring-2 focus:ring-offset-2 
+              focus:ring-indigo-500 items-center font-glacial-bold cursor-pointer` }
             >
               CADASTRAR
             </button>

@@ -67,23 +67,32 @@ function CheckoutAddress() {
       <h2 className="text-2xl mb-4 font-medium">Detalhes e Endereço para Entrega</h2>
 
       <form className="flex flex-wrap w-full xl:w-4/6 items-center justify-center">
-        <div className="flex flex-col md:flex-row flex-evenly justify-evenly items-center w-full mb-4 md:pr-4">
+        <div
+          className={ `flex flex-col md:flex-row flex-evenly 
+        justify-evenly items-center w-full mb-4 md:pr-4` }
+        >
           <div className="mt-2">
             <FormControl sx={ { m: 1, minWidth: 120 } }>
-              <InputLabel id="demo-simple-select-helper-label">Vendedor (a)</InputLabel>
-              <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                label="Vendedor (a)"
-                name="seller"
-                value={ adressValues.seller }
-                onChange={ handleChange }
-                className="w-60"
-              >
-                <MenuItem value="Fulana Pereira">Maria Cachaça</MenuItem>
-                <MenuItem value="Calvo de Cria">Calvo de Cria</MenuItem>
-                <MenuItem value="Senhor Absinto">Senhor Absinto</MenuItem>
-              </Select>
+              {user && (
+                <InputLabel id="demo-simple-select-helper-label">Vendedor (a)</InputLabel>
+              )}
+              {user && (
+                <Select
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  label="Vendedor (a)"
+                  name="seller"
+                  value={ adressValues.seller }
+                  onChange={ handleChange }
+                  className="w-60"
+                >
+
+                  <MenuItem value="Fulana Pereira">Maria Cachaça</MenuItem>
+                  <MenuItem value="Senhor Absinto">Senhor Absinto</MenuItem>
+                  <MenuItem value="Calvo de Cria">Calvo de Cria</MenuItem>
+
+                </Select>
+              )}
             </FormControl>
           </div>
 
@@ -129,7 +138,12 @@ function CheckoutAddress() {
             data-testid="customer_checkout__button-submit-order"
             onClick={ () => sellRegister() }
             disabled={ !adressValues.address || !adressValues.number }
-            className="w-[220px] h-[50px] mb-10 inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-lg rounded-md text-white bg-gradient-to-b from-corBotao to-corBotaoHover hover:from-corBotaoHover hover:to-corBotao focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 items-center font-glacial-bold cursor-pointer"
+            className={ `w-[220px] h-[50px] mb-10 inline-flex 
+            justify-center py-4 px-6 border border-transparent shadow-sm text-lg 
+            rounded-md text-white bg-gradient-to-b 
+            from-corBotao to-corBotaoHover hover:from-corBotaoHover 
+            hover:to-corBotao focus:outline-none focus:ring-2 focus:ring-offset-2 
+            focus:ring-indigo-500 items-center font-glacial-bold cursor-pointer` }
           >
             FINALIZAR PEDIDO
           </button>

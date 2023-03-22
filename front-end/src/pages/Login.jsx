@@ -9,6 +9,8 @@ import { requestLogin } from '../services/requests';
 import '../index.css';
 import '../styles/Login.css';
 
+const resolveError = 1;
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -76,69 +78,92 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-corFundo flex flex-col justify-center py-0 sm:px-6 lg:px-8">
+    <div
+      className={ `min-h-screen bg-corFundo flex flex-col 
+    justify-center py-0 sm:px-6 lg:px-8` }
+    >
       <div className="w-full max-w-md mx-auto px-2 logo-ibirita">
         <img src={ ibirita } alt="ibirita-logo" />
         <div className="bg-white py-8 px-4 shadow rounded-lg sm:rounded-lg sm:px-10">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 className="text-center text-3xl text-gray-900 my-5 font-glacial-bold">Acesse sua conta</h2>
+            <h2 className="text-center text-3xl text-gray-900 my-5 font-glacial-bold">
+              Acesse sua conta
+            </h2>
           </div>
 
           <form onSubmit={ handleSubmit }>
-            <div>
-              <TextField
-                id="outlined-basic"
-                label="Email"
-                variant="outlined"
-                value={ email }
-                onChange={ handleEmail }
-                placeholder="Insira o seu email"
-                margin="normal"
-                fullWidth
-                required
-              />
-            </div>
-
-            <div className="mt-6">
-              <TextField
-                id="password"
-                name="password"
-                label="Senha"
-                type="password"
-                value={ password }
-                variant="outlined"
-                onChange={ handlePassword }
-                placeholder="**********"
-                margin="normal"
-                fullWidth
-                required
-              />
-            </div>
-
-            <div className="mt-6">
-              <ThemeProvider theme={ theme }>
-                <Button
-                  type="submit"
-                  size="large"
-                  variant="contained"
-                  color="primary"
-                  disabled={ !validUser() }
-                  onClick={ () => handleSubmit() }
-                  className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-black bg-corBotao hover:bg-corBotaoHover hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            {resolveError && (
+              <div>
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                  value={ email }
+                  onChange={ handleEmail }
+                  placeholder="Insira o seu email"
+                  margin="normal"
+                  fullWidth
+                  required
+                />
+              </div>
+            )}
+            {resolveError && (
+              <div className="mt-6">
+                <TextField
+                  id="password"
+                  name="password"
+                  label="Senha"
+                  type="password"
+                  value={ password }
+                  variant="outlined"
+                  onChange={ handlePassword }
+                  placeholder="**********"
+                  margin="normal"
+                  fullWidth
+                  required
+                />
+              </div>
+            )}
+            {resolveError && (
+              <div className="mt-6">
+                <ThemeProvider theme={ theme }>
+                  <Button
+                    type="submit"
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    disabled={ !validUser() }
+                    onClick={ () => handleSubmit() }
+                    className={ `w-full inline-flex justify-center py-2 px-4 border 
+                    border-transparent 
+                    shadow-sm text-sm font-medium rounded-md text-black bg-corBotao 
+                    hover:bg-corBotaoHover hover:text-white focus:outline-none 
+                    focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500` }
+                  >
+                    Login
+                  </Button>
+                </ThemeProvider>
+              </div>
+            )}
+            {resolveError && (
+              <div className="mt-6 flex justify-center items-center">
+                <p className="text-gray-700">Não é cadastrado?</p>
+                <button
+                  type="button"
+                  className="ml-1 text-blue-600"
+                  onClick={ () => setRegistration(true) }
                 >
-                  Login
-                </Button>
-              </ThemeProvider>
-            </div>
-
-            <div className="mt-6 flex justify-center items-center">
-              <p className="text-gray-700">Não é cadastrado?</p>
-              <a href="#" className="ml-1 text-blue-600" onClick={ () => setRegistration(true) }>Faça o Registro</a>
-            </div>
+                  Faça o Registro
+                </button>
+              </div>
+            )}
 
             { invisibleElement && (
               <div className="mt-6">
-                <p data-testid="common_login__element-invalid-email" className="text-md text-red-600 text-center">
+                <p
+                  data-testid="common_login__element-invalid-email"
+                  className="text-md text-red-600 text-center"
+                >
                   E-mail ou Senha Inválidos
                 </p>
               </div>

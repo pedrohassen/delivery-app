@@ -31,12 +31,29 @@ function CheckoutTable({ products, onRemove }) {
         <table className="w-full whitespace-no-wrap">
           <thead>
             <tr className="bg-gray-200">
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Item</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Descrição</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Quantidade</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Valor Unitário</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Subtotal</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Ações</th>
+              {products && (
+                <>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Item
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Descrição
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Quantidade
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Valor Unitário
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Subtotal
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Ações
+                  </th>
+                </>
+              )}
+
             </tr>
           </thead>
           <tbody>
@@ -60,7 +77,8 @@ function CheckoutTable({ products, onRemove }) {
                   <button
                     type="button"
                     onClick={ () => handleRemoveProduct(product.id) }
-                    className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md"
+                    className={ `bg-red-500 hover:bg-red-700 text-white 
+                    font-semibold py-2 px-4 rounded-md` }
                   >
                     Remover
                   </button>
@@ -78,7 +96,8 @@ function CheckoutTable({ products, onRemove }) {
             className="text-lg md:text-2xl font-bold text-corLetra font-glacial-bold ml-2"
             data-testid="customer_checkout__element-order-total-price"
           >
-            {`R$ ${getTotalPrice().toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`}
+            {`R$ ${getTotalPrice()
+              .toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`}
           </h2>
         </div>
       </div>

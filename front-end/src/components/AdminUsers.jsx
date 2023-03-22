@@ -44,17 +44,34 @@ function AdminUsers() {
         <table className="w-full whitespace-no-wrap">
           <thead>
             <tr className="bg-gray-200">
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Item</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Nome</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">E-mail</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Tipo</th>
-              <th className="py-3 px-6 text-center uppercase font-semibold text-sm">Excluir</th>
+              {updatedUsers && (
+                <>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Item
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Nome
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    E-mail
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Tipo
+                  </th>
+                  <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
+                    Excluir
+                  </th>
+                </>
+              )}
             </tr>
           </thead>
 
           <tbody>
             {users.map((user, index) => (
-              <tr key={ index + 1 } className="border-b border-gray-200 font-glacial-regular">
+              <tr
+                key={ index + 1 }
+                className="border-b border-gray-200 font-glacial-regular"
+              >
                 <td
                   className="py-4 px-6 text-center"
                   data-testid={
@@ -89,7 +106,8 @@ function AdminUsers() {
                 >
                   <button
                     type="button"
-                    className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md"
+                    className={ `bg-red-500 hover:bg-red-700 text-white 
+                    font-semibold py-2 px-4 rounded-md` }
                     onClick={ () => handleDeleteUser(user.id) }
                   >
                     Remover
