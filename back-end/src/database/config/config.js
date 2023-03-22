@@ -7,7 +7,7 @@ const suffix = {
   production: "",
   dev: "-dev",
   development: "-dev",
-  test: "-test",
+  test: "",
 };
 
 const options = {
