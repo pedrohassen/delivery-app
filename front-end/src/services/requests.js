@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: `http://localhost:${process.env.REACT_APP_API_PORT || '3001'}`,
+  baseURL: `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_HOSTNAME}`,
 });
 
 export const setToken = (token) => {
@@ -16,13 +16,13 @@ export const requestData = async (endpoint, token) => {
 };
 
 export const requestLogin = async (body) => {
-  const { data } = await api.post('http://localhost:3001/login', body);
+  const { data } = await api.post('/login', body);
   return data;
 };
 
 export const requestRegister = async (body) => {
   try {
-    const { data } = await api.post('http://localhost:3001/register', body);
+    const { data } = await api.post('/register', body);
 
     return data;
   } catch (error) {
@@ -41,7 +41,7 @@ export const requestRegister = async (body) => {
 
 export const requestCheckout = async (body) => {
   try {
-    const { data } = await api.post('http://localhost:3001/orders', body);
+    const { data } = await api.post('/orders', body);
 
     return data;
   } catch (error) {
@@ -60,7 +60,7 @@ export const requestCheckout = async (body) => {
 
 export const requestSales = async () => {
   try {
-    const { data } = await api.get('http://localhost:3001/orders');
+    const { data } = await api.get('/orders');
 
     return data;
   } catch (error) {
@@ -79,14 +79,14 @@ export const requestSales = async () => {
 
 export const requestUpdateStatus = async (id, body) => {
   const { data } = await api
-    .put(`http://localhost:3001/orders/${id}`, body);
+    .put(`/orders/${id}`, body);
 
   return data;
 };
 
 export const requestUserById = async (id) => {
   try {
-    const { data } = await api.get(`http://localhost:3001/users/${id}`);
+    const { data } = await api.get(`/users/${id}`);
 
     return data;
   } catch (error) {
@@ -105,7 +105,7 @@ export const requestUserById = async (id) => {
 
 export const requestAllUsers = async () => {
   try {
-    const { data } = await api.get('http://localhost:3001/users');
+    const { data } = await api.get('/users');
 
     return data;
   } catch (error) {
@@ -125,7 +125,7 @@ export const requestAllUsers = async () => {
 export const createNewUserAdmin = async (body, token) => {
   try {
     setToken(token);
-    const { data } = await api.post('http://localhost:3001/register/admin', body);
+    const { data } = await api.post('/register/admin', body);
 
     return data;
   } catch (error) {
@@ -145,7 +145,7 @@ export const createNewUserAdmin = async (body, token) => {
 export const deleteUserByID = async (id, token) => {
   try {
     setToken(token);
-    const { data } = await api.delete(`http://localhost:3001/users/${id}`);
+    const { data } = await api.delete(`/users/${id}`);
 
     return data;
   } catch (error) {
