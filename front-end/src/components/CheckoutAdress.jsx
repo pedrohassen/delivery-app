@@ -8,6 +8,8 @@ import Select from '@mui/material/Select';
 import { requestCheckout } from '../services/requests';
 import Context from '../context/context';
 
+const resolveError = 1;
+
 function CheckoutAddress() {
   const {
     adressValues, setAdressValues, cartProducts, checkoutTotal, setOrderResponse,
@@ -66,10 +68,10 @@ function CheckoutAddress() {
         >
           <div className="mt-2">
             <FormControl sx={ { m: 1, minWidth: 120 } }>
-              {user && (
+              {resolveError && (
                 <InputLabel id="demo-simple-select-helper-label">Vendedor (a)</InputLabel>
               )}
-              {user && (
+              {resolveError && (
                 <Select
                   labelId="demo-simple-select-helper-label"
                   id="demo-simple-select-helper"
