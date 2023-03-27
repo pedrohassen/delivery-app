@@ -133,7 +133,7 @@ export default function LoginPage() {
                     variant="contained"
                     color="primary"
                     disabled={ !validUser() }
-                    onClick={ () => handleSubmit() }
+                    onClick={ (e) => handleSubmit(e) }
                     className={ `w-full inline-flex justify-center py-2 px-4 border 
                     border-transparent 
                     shadow-sm text-sm font-medium rounded-md text-black bg-corBotao 
