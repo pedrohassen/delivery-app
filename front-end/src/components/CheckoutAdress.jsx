@@ -7,7 +7,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { requestCheckout } from '../services/requests';
 import Context from '../context/context';
-// import '../styles/CheckoutAddress.css';
 
 function CheckoutAddress() {
   const {
@@ -25,10 +24,6 @@ function CheckoutAddress() {
 
   async function sellRegister() {
     try {
-      // if (cartProducts.length === 0) {
-      //   alert('Não há produtos no carrinho.');
-      //   return;
-      // }
       const user = localStorage.getItem('user');
       if (!user) {
         history.push('/login');
@@ -47,9 +42,7 @@ function CheckoutAddress() {
         deliveryAddress: adressValues.address,
         deliveryNumber: Number(adressValues.number),
       };
-      console.log(saleData);
       const request = await requestCheckout(saleData);
-      console.log(request);
 
       setOrderResponse(request);
 
