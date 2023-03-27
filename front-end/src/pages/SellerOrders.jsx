@@ -15,7 +15,7 @@ export default function SellerOrders() {
   };
 
   useEffect(() => {
-    const endpoint = 'http://localhost:3001/orders/';
+    const endpoint = `${process.env.REACT_APP_PROTOCOL}://${process.env.REACT_APP_HOSTNAME}/orders/`;
     const { token, id } = JSON.parse(localStorage.getItem('user'));
     const fetchProducts = async () => {
       const products = await requestData(endpoint, token);
