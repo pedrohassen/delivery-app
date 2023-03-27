@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/context';
 import { requestAllUsers, deleteUserByID } from '../services/requests';
 
+const resolveError = 1;
+
 function AdminUsers() {
   const { newUserRegisterByAdmin } = useContext(Context);
   const [users, setUsers] = useState([]);
@@ -44,7 +46,7 @@ function AdminUsers() {
         <table className="w-full whitespace-no-wrap">
           <thead>
             <tr className="bg-gray-200">
-              {updatedUsers && (
+              {resolveError && (
                 <>
                   <th className="py-3 px-6 text-center uppercase font-semibold text-sm">
                     Item
