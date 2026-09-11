@@ -4,7 +4,7 @@
   "description": "Back-end do projeto App de Delivery",
   "main": "./src/api/server.js",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0 <21.0.0"
   },
   "engineStrict": true,
   "private": true,
